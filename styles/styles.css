@@ -1,0 +1,235 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600&display=swap');
+
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+}
+
+body {
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+}
+
+input, button, textarea, select {
+    font: inherit;
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: break-word;
+}
+
+#root, #__next {
+    isolation: isolate;
+}
+
+:root {
+    --desaturated-red: hsl(0, 36%, 70%);
+    --soft-red: hsl(0, 93%, 68%);
+    --dark-greyish-red: hsl(0, 6%, 24%);
+
+}
+
+/* For portrait phones */
+
+.container {
+    background: linear-gradient(135deg, hsl(0, 0%, 100%), hsl(0, 100%, 98%));
+    min-height: 100dvh;
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+.logo {
+    display: grid;
+    align-content: center;
+    padding: 2em;
+}
+
+.image-container-mobile img {
+    width: 100%;
+}
+
+.wrapper {
+    font-size: clamp(2rem, min(8dvw, 8dvh), 3rem);
+    display: flex;
+    flex-direction: column;
+    padding: 2em 1em;
+    row-gap: 1em;
+}
+
+.main-heading {
+    text-align: center;
+    letter-spacing: 0.8rem;
+    line-height: 2em;
+}
+
+.main-heading h1:nth-child(1) {
+    color: var(--desaturated-red);
+    font-weight: 300;
+}
+
+.main-heading h1:nth-child(2), .main-heading h1:nth-child(3) {
+    color: var(--dark-greyish-red);
+    font-weight: 600;
+}
+
+.sub-section p {
+    font-size: 50%;
+    text-align: center;
+    color: var(--desaturated-red);
+    font-weight: 400;
+}
+
+.button-container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    align-items: center;
+}
+
+.button-container input {
+    grid-column: 1 / 6;
+    grid-row: 1 / 2;
+    height: 100%;
+    font-size: 50%;
+    border: 1px solid var(--desaturated-red);
+    padding-left: 1em;
+    border-radius: 30px;
+    color: var(--desaturated-red);
+    outline: none;
+}
+
+.button-container input::placeholder {
+    color: var(--desaturated-red);
+    opacity: 0.6;
+}
+
+.button-container svg {
+    justify-self: center;
+    grid-column: 4 / 5;
+    grid-row: 1 / 2;
+    display: none;
+}
+
+.button-container button {
+    grid-column: 5 / 6;
+    grid-row: 1 / 2;
+    background: linear-gradient(135deg, hsl(0, 80%, 86%), hsl(0, 74%, 74%));
+    display: grid;
+    align-content: center;
+    justify-items: center;
+    border: none;
+    border-radius: 30px;
+}
+
+.button-container button img {
+    padding: 0.5em;
+}
+
+.newsletter-section p {
+    padding: 1em;
+    font-size: 50%;
+}
+
+.error {
+    display: none;
+    color: var(--soft-red);
+}
+
+.success {
+    display: none;
+    color: #76bb61;
+}
+
+/* laptops 1200px and up */
+
+@media (width >= 75em) {
+    .container {
+        grid-template-columns: 1.2fr 1fr;
+        gap: 2em;
+        padding-left: 5em;
+        height: 100dvh;
+        overflow: hidden;
+    }
+
+    .logo {
+        grid-column: 1 / 2;
+        grid-row: 1 / 2;
+        padding: 0em;
+    }
+
+    .image-container-desktop {
+        grid-column: 2 / 3;
+        grid-row: 1 / 3;
+    }
+
+    .image-container-desktop img {
+        width: 100%;
+        height: 100%;
+    }
+
+    .wrapper {
+        grid-column: 1 / 2;
+        grid-row: 2 / 3;
+        padding: 0em;
+        padding-right: 4em;
+        row-gap: 1em;
+    }
+
+    .main-heading {
+        line-height: 1.5em;
+    }
+
+    .main-heading {
+        text-align: left;
+    }
+
+    .sub-section p {
+        text-align: left;
+        font-size: 40%;
+    }
+
+    .button-container input {
+        font-size: 40%;
+    }
+
+    .newsletter-section p {
+        font-size: 40%;
+    }
+
+    .button-container button img {
+        padding: 0.3em;
+    }
+
+    .button-container button:hover {
+        background: hsl(0, 67%, 86%);
+        box-shadow: 0px 10px 20px var(--desaturated-red);
+        cursor: pointer;
+    }
+}
+
+
+/* desktops 2500px and up */
+
+@media (width >= 156.25em) {
+
+    .container {
+        padding-left: 10%;
+    }
+
+    .wrapper {
+        font-size: clamp(2rem, min(8dvw, 8dvh), 15rem);
+    }
+
+    .logo svg {
+        transform: scale(3);
+    }
+}
